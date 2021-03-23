@@ -1,20 +1,12 @@
+#ifndef __MOTORHANDLER_H__
+#define __MOTORHANDLER_H__
+
 #include <Motor.h>
 #include <Hardware.h>
-#include <iostream>
 
-
-template <class hardware_>
-class MotorHandler: public Motor<hardware_>
+namespace application
 {
-private:
-    
-public:
-    MotorHandler()
-    {
+    typedef Motor<Hardware> MotorHandle;
+}
 
-    }
-    ~MotorHandler()
-    {
-
-    }
-};
+#endif // __MOTORHANDLER_H__

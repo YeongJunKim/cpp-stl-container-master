@@ -1,11 +1,10 @@
-#ifndef __HARDWARE_H__
-#define __HARDWARE_H__
+#ifndef __PACKETHANDLER_H__
+#define __PACKETHANDLER_H__
 
 #include <iostream>
-#include <memory>
 #include <queue>
-
 #include <TypeDef.h>
+#include <algorithm>
 
 namespace application
 {
@@ -15,26 +14,21 @@ enum class enumTask
     start = 0, begin, cmd1, cmd2, length1, length2, data, end
 };
 
-class Hardware
+class PacketHandler
 {
-public:
-    Hardware(/* args */){}
-    ~Hardware(){}
-    void printHello()
-    {
-        std::cout << "hello???" << std::endl;
-    }
 private:
-    MotorTask taskOne_;
-    uint16_t dataCount_;
-    enumTask state_ = enumTask::start;    
-public:
     std::queue<qData> dataQueue_; 
     std::queue<MotorTask> taskQueue_;
+    enumTask state_ = enumTask::start;
+public:
+    PacketHandler(/* args */);
+    ~PacketHandler();
+
     void writeByte(qData data);
     bool readByte(qData &data);
 
     bool taskMachine();
 };
 }
-#endif // __HARDWARE_H__
+
+#endif // __PACKETHANDLER_H__

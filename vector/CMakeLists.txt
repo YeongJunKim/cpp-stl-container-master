@@ -15,6 +15,8 @@ include_directories(../commonLib)
 
 set(SOURCES_TRAIN_VECTOR
     main.cpp
+    ./../commonLib/Hardware.cpp
+    ./../commonLib/PacketHandler.cpp
 )
 
 add_executable(train_vector ${SOURCES_TRAIN_VECTOR})

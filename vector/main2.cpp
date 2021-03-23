@@ -1,9 +1,10 @@
 #include <vector>
 #include <iostream>
-#include <time.h>
-#include <unistd.h>
 
 #include <MotorHandler.h>
+
+#include <time.h>
+#include <unistd.h>
 
     uint64_t getTick(void)
     {
@@ -20,18 +21,5 @@ application::MotorHandle handler;
 
 int main()
 {
-    uint64_t nowTick = getTick();
-    uint64_t pastTick = nowTick;
-
-    auto hardware = handler.getHardware();
-    while(1)
-    {
-        nowTick = getTick();
-        if(nowTick - pastTick > 1000)
-        {
-            handler.spinOnce();
-            hardware->printHello();
-            pastTick = nowTick;
-        }
-    }
+    handler.spinOnce();
 }  
