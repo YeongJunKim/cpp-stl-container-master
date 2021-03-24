@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(train_vector)
 
+find_package(Threads)
 
 
 include_directories(../commonLib)
@@ -20,4 +21,5 @@ set(SOURCES_TRAIN_VECTOR
 )
 
 add_executable(train_vector ${SOURCES_TRAIN_VECTOR})
+target_link_libraries(train_vector ${CMAKE_THREAD_LIBS_INIT})
 # target_link_libraries(train_vector COMMON_LIB)

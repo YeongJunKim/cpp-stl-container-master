@@ -18,7 +18,7 @@ namespace application
     
     bool Hardware::taskMachine() 
     {
-        uint8_t data;
+        qData data;
         if(readByte(data))
         {
             switch(state_)
